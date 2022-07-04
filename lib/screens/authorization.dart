@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Authorization extends StatelessWidget {
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +45,7 @@ class Authorization extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.only(top: 44),
-              width: double.infinity,
+              width: 500,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -72,18 +73,28 @@ class Authorization extends StatelessWidget {
                   Container(
                     padding:
                         const EdgeInsets.only(left: 50, top: 16, bottom: 17),
-                    child: Row(
-                      children: const [
-                        Text(
-                          '+1',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w400),
-                        ),
-                        VerticalDivider(
-                          thickness: 1,
-                          color: Colors.black,
-                        ),
-                      ],
+                    child: IntrinsicHeight(
+                      child: Row(
+                        children: [
+                          const Text(
+                            '+1',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.w400),
+                          ),
+                          const VerticalDivider(
+                            thickness: 1,
+                            color: Color(0xff545458),
+                          ),
+                          TextField(
+                            controller: _controller,
+                            obscureText: true,
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Your phone number',
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
